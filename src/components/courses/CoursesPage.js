@@ -35,7 +35,7 @@ class CoursesPage extends React.Component {
 
         <input type="submit" value="Save" />
         {this.props.courses.map((course) => (
-          <div key={course.title}>{course.title}</div>
+          <div key={course.title}>{course.title}</div> // when iterating, React expects a key attribute
         ))}
       </form>
     );
@@ -48,6 +48,7 @@ CoursesPage.propTypes = {
   actions: PropTypes.object.isRequired,
 };
 
+//react-redux
 function mapStateToProps(state) {
   return {
     courses: state.courses,
@@ -61,6 +62,7 @@ function mapStateToProps(state) {
 //   };
 // }
 
+// react-redux
 // maps all actions to dispatch
 // preferred
 function mapDispatchToProps(dispatch) {
