@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import courses from "./courseReducer"; // note we have aliased courseReducer as courses, since courseReducer is the default export
+import courses from "./courseReducer";
+import authors from "./authorReducer";
 
 const rootReducer = combineReducers({
   courses,
+  authors
 });
 
 export default rootReducer;
