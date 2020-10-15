@@ -19,7 +19,8 @@ class CoursesPage extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault(); //prevent postback
-    this.props.actions.createCourse(this.state.course);
+    // this is a dispatch operation:
+    this.props.actions.createCourse(this.state.course); //remember actions are bound to props by mapDispatchToProps
   };
 
   render() {
@@ -76,4 +77,5 @@ function mapDispatchToProps(dispatch) {
 //   createCourse: courseActions.createCourse,
 // };
 
+// connect returns a function, which then is called with (CoursesPage) as its parameter
 export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
