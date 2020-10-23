@@ -2,7 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const CourseList = ({ courses }) => (
+const CourseList = (
+  // omit return statement by using concise function syntax
+  { courses } //destructure props into { courses }
+) => (
   <table className="table">
     <thead>
       <tr>
@@ -13,7 +16,7 @@ const CourseList = ({ courses }) => (
       </tr>
     </thead>
     <tbody>
-      {courses.map(course => {
+      {courses.map((course) => {
         return (
           <tr key={course.id}>
             <td>
@@ -37,7 +40,7 @@ const CourseList = ({ courses }) => (
 );
 
 CourseList.propTypes = {
-  courses: PropTypes.array.isRequired
+  courses: PropTypes.array.isRequired,
 };
 
 export default CourseList;

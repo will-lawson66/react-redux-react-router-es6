@@ -9,14 +9,16 @@ export function loadCourseSuccess(courses) {
   return { type: types.LOAD_COURSES_SUCCESS, courses };
 }
 
+// add thunk
+// inner function is passed dispatch
 export function loadCourses() {
-  return function(dispatch) {
+  return function (dispatch) {
     return courseApi
       .getCourses()
-      .then(courses => {
+      .then((courses) => {
         dispatch(loadCourseSuccess(courses));
       })
-      .catch(error => {
+      .catch((error) => {
         throw error;
       });
   };
