@@ -1,5 +1,4 @@
 export default {
   courses: [],
-  authors: [],
+  authors: []
 };
-// this describes the shape of our state
