@@ -7,14 +7,14 @@ export function loadAuthorsSuccess(authors) {
 }
 
 export function loadAuthors() {
-  return function (dispatch) {
-    dispatch(beginApiCall()); // dispatch here
+  return function(dispatch) {
+    dispatch(beginApiCall());
     return authorApi
       .getAuthors()
-      .then((authors) => {
+      .then(authors => {
         dispatch(loadAuthorsSuccess(authors));
       })
-      .catch((error) => {
+      .catch(error => {
         dispatch(apiCallError(error));
         throw error;
       });
