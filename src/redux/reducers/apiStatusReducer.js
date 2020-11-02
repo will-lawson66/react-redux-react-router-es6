@@ -13,7 +13,7 @@ export default function apiCallStatusReducer(
     return state + 1;
   } else if (
     action.type === types.API_CALL_ERROR ||
-    actionTypeEndsInSuccess(action.type)
+    actionTypeEndsInSuccess(action.type) // decrement api call counter on error
   ) {
     return state - 1;
   }

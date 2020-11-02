@@ -15,18 +15,18 @@ export function updateCourseSuccess(course) {
 }
 
 export function deleteCourseOptimistic(course) {
-  return { type: types.DELETE_COURSE_OPTIMISTIC, course };
+  return { type: types.DELETE_COURSE_OPTIMISTIC, course }; // optimistic delete
 }
 
 export function loadCourses() {
-  return function(dispatch) {
-    dispatch(beginApiCall());
+  return function (dispatch) {
+    dispatch(beginApiCall()); // include parens
     return courseApi
       .getCourses()
-      .then(courses => {
+      .then((courses) => {
         dispatch(loadCourseSuccess(courses));
       })
-      .catch(error => {
+      .catch((error) => {
         dispatch(apiCallError(error));
         throw error;
       });
@@ -35,24 +35,25 @@ export function loadCourses() {
 
 export function saveCourse(course) {
   //eslint-disable-next-line no-unused-vars
-  return function(dispatch, getState) {
+  return function (dispatch, getState) {
     dispatch(beginApiCall());
     return courseApi
       .saveCourse(course)
-      .then(savedCourse => {
+      .then((savedCourse) => {
         course.id
           ? dispatch(updateCourseSuccess(savedCourse))
           : dispatch(createCourseSuccess(savedCourse));
       })
-      .catch(error => {
-        dispatch(apiCallError(error));
+      .catch((error) => {
+        dispatch(apiCallError(error)); // decrement calls in progress counter on api call fail
         throw error;
       });
   };
 }
 
 export function deleteCourse(course) {
-  return function(dispatch) {
+  // optimistic delete
+  return function (dispatch) {
     // Doing optimistic delete, so not dispatching begin/end api call
     // actions, or apiCallError action since we're not showing the loading status for this.
     dispatch(deleteCourseOptimistic(course));

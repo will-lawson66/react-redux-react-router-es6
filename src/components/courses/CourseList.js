@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const CourseList = ({ courses, onDeleteClick }) => (
+const CourseList = (
+  { courses, onDeleteClick } // optimistic delete
+) => (
   <table className="table">
     <thead>
       <tr>
@@ -14,7 +16,7 @@ const CourseList = ({ courses, onDeleteClick }) => (
       </tr>
     </thead>
     <tbody>
-      {courses.map(course => {
+      {courses.map((course) => {
         return (
           <tr key={course.id}>
             <td>
@@ -47,7 +49,7 @@ const CourseList = ({ courses, onDeleteClick }) => (
 
 CourseList.propTypes = {
   courses: PropTypes.array.isRequired,
-  onDeleteClick: PropTypes.func.isRequired
+  onDeleteClick: PropTypes.func.isRequired, // optimistic delete
 };
 
 export default CourseList;

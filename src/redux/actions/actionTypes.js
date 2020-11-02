@@ -11,4 +11,4 @@ export const API_CALL_ERROR = "API_CALL_ERROR";
 // So this action name deliberately omits the "_SUCCESS" suffix.
 // If it had one, our apiCallsInProgress counter would be decremented below zero
 // because we're not incrementing the number of apiCallInProgress when the delete request begins.
-export const DELETE_COURSE_OPTIMISTIC = "DELETE_COURSE_OPTIMISTIC";
+export const DELETE_COURSE_OPTIMISTIC = "DELETE_COURSE_OPTIMISTIC"; // optimistic delete
