@@ -1,9 +1,8 @@
 import React from "react";
 import { mount } from "enzyme";
 import { authors, newCourse, courses } from "../../../tools/mockData";
-import { ManageCoursePage } from "./ManageCoursePage"; //named (not default), unconnected export
+import { ManageCoursePage } from "./ManageCoursePage";
 
-// factory
 function render(args) {
   const defaultProps = {
     authors,
@@ -12,12 +11,12 @@ function render(args) {
     // Could also choose to use MemoryRouter as shown in Header.test.js,
     // or even wrap with React Router, depending on whether I
     // need to test React Router related behavior.
-    history: {}, // could pull in MemoryRouter as in previous moduule
+    history: {},
     saveCourse: jest.fn(),
     loadAuthors: jest.fn(),
     loadCourses: jest.fn(),
     course: newCourse,
-    match: {},
+    match: {}
   };
 
   const props = { ...defaultProps, ...args };
