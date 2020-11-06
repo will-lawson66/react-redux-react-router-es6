@@ -1,16 +1,15 @@
 import React from "react";
 import CourseForm from "./CourseForm";
-import { shallow } from "enzyme"; //renders single component, no DOM (vs. mount)
+import { shallow } from "enzyme";
 
 function renderCourseForm(args) {
-  // factory function to be used in all tests
   const defaultProps = {
     authors: [],
     course: {},
     saving: false,
     errors: {},
     onSave: () => {},
-    onChange: () => {},
+    onChange: () => {}
   };
 
   const props = { ...defaultProps, ...args };
@@ -20,7 +19,7 @@ function renderCourseForm(args) {
 it("renders form and header", () => {
   const wrapper = renderCourseForm();
   // console.log(wrapper.debug());
-  expect(wrapper.find("form").length).toBe(1); // css selectors
+  expect(wrapper.find("form").length).toBe(1);
   expect(wrapper.find("h2").text()).toEqual("Add Course");
 });
 
